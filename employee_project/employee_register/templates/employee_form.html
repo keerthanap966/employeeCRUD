@@ -10,9 +10,12 @@
 <body>
     {%extends 'base.html'%}
     {%block content%}
-    <h1>
-        employee form
-    </h1>
+    <form method="post">
+        {% csrf_token %}
+        {{fromkey}}
+        <input type="submit">
+    </form>
+    
     {%endblock%}
 
 </body>

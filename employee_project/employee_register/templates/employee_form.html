@@ -1,22 +1,30 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    {%extends 'base.html'%}
-    {%block content%}
+  </head>
+  <body>
+    {%extends 'base.html'%} {%load crispy_forms_tags%} {%block content%}
     <form method="post">
-        {% csrf_token %}
-        {{fromkey}}
-        <input type="submit">
-    </form>
-    
-    {%endblock%}
+      {% csrf_token %} {{fromkey.Fullname|as_crispy_field}}
+      {{fromkey.Emp_code|as_crispy_field}}
+      <div class="row">
+        <div class="col-md-4">{{fromkey.mobile|as_crispy_field}}</div>
+        <div class="col-md-8">{{fromkey.position|as_crispy_field}}</div>
+      </div>
+      <div class="row">
+        <div class="col_md_8">
+            <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fa-solid fa-database"></i>submit</button>
 
-</body>
+        </div>
+      </div>
+
+     
+    </form>
+
+    {%endblock%}
+  </body>
 </html>
